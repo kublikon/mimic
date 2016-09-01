@@ -1,0 +1,19 @@
+/* controls */
+
+input:focus, select:focus, textarea:focus, button:focus { outline:none; }
+
+input[type=text] { width:250px; padding:6px; font-size:13px; border:none; border-radius:3px; background:#eee; }
+input[type=text] + input[type=text] { margin-left:4px; }
+
+textarea { width:100%; padding:6px; font-size:13px; border:none; border-radius:3px; box-sizing:border-box; background:#eee; resize:none; }
+
+select { width:262px; margin-bottom:4px; padding:5px 5px 5px 16px; font-size:13px; border:none; border-radius:4px; box-sizing:border-box; border:1px solid rgba(0,0,0,.1); background:#fff url(../img/icon-down.png) no-repeat right; -webkit-appearance:none; color:@accent; }
+
+.one input[type=text] { width:200px; }
+.three input[type=text] { width:50px; }
+
+/* buttons */
+
+button { width:32px; padding:7px; border:0; border-radius:30px; font-size:16px; background:@accent; color:#fff; cursor:pointer; }
+button.save { width:initial; padding:7px 20px; background:@accent-light; }
+button.save:hover { background:@accent-dark; }

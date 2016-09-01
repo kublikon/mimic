@@ -1,0 +1,18 @@
+{
+	"title": "mimic",
+	"css": [
+		"css/base.css",
+		"css/font-awesome.min.css"
+	],
+	"scripts": [
+		"js/libs/angular.min.js",
+		"js/libs/angular-ui-router.min.js",
+		"js/libs/jquery-1.9.1.min.js",
+		"js/app.js",
+		"js/config.js",
+		"js/main.js",
+		"js/factories/services.js",
+		"js/controllers/endpoints.js",
+		"js/controllers/edit.js"
+	]
+}

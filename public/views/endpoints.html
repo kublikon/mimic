@@ -1,0 +1,79 @@
+<div class="settings">
+	
+	<img src="./img/logo-sws-purple.svg">
+
+	<ul class="status">
+		<li><p><i class="fa fa-plug"></i>Active Endpoints</p> <span>{{endpoints.length}}</span></li>
+		<li><p><i class="fa fa-share"></i>Total Hits</p> <span>{{total_hits}}</span></li>
+		<li><p><i class="fa fa-reply"></i>Total Pass / Fail / Error</p> <span>{{total_pass}} / {{total_fail}} / {{total_error}}</span></li>
+	</ul>
+
+	<div class="controls">
+		<button ng-click="refresh()"><i class="fa fa-refresh"></i></button>
+		<button ng-click="add()"><i class="fa fa-plus" id="add-btn"></i></button>
+	</div>
+
+	<ul class="edit-endpoint" id="edit">
+		<li>Name 
+			<span>
+				<input type="text" placeholder="endpoint reference name" ng-model="name">
+			</span>
+		</li>
+		<li>Type 
+			<span>
+				<select ng-model="type">
+					<option value="" selected="selected" disabled>-- Select --</option>
+					<option>get</option>
+					<option>post</option>
+					<option>delete</option>
+				</select>
+			</span>
+		</li>
+		<li>Path 
+			<span>
+				<input type="text" placeholder="ex: /api/settings/update" ng-model="path">
+			</span>
+		</li>
+		<li>Response Type 
+			<span>
+				<select ng-model="response_type">
+					<option value="" selected="selected" disabled>-- Select --</option>
+					<option>success</option>
+					<option>fail</option>
+					<option>error</option>
+					<option>random</option>
+					<option>condition</option>
+				</select>
+			</span>
+		</li>
+		<li>
+			<textarea rows="4" placeholder="success response" ng-model="success_response"></textarea>
+		</li>
+		<li>
+			<textarea rows="4" placeholder="fail response" ng-model="fail_response"></textarea>
+		</li>
+		<li>
+			<textarea rows="4" placeholder="error response" ng-model="error_response"></textarea>
+		</li>
+		<li class="inactive"><button class="save" ng-click="save()">Save</button></li>
+	</ul>
+
+	<ul class="endpoints">
+		<li ng-repeat="endpoint in endpoints | orderBy: 'name'">
+			<span class="name">{{endpoint.name}}</span>
+			<span class="path">{{endpoint.path}}</span>
+			<span class="count">
+				<i class="fa fa-check"></i>{{endpoint.count_success}}
+				<i class="fa fa-close"></i>{{endpoint.count_fail}}
+				<i class="fa fa-bug"></i>{{endpoint.count_error}}
+			</span>
+			<span class="active">
+				<i class="fa fa-check" ng-class="{ 'on': endpoint.is_active }" ng-click="activate(endpoint)"></i>
+				<i class="fa fa-pencil" ui-sref="modal({ endpoint: endpoint })"></i>
+				<i class="fa fa-close" ng-click="remove(endpoint)"></i>
+			</span>
+		</li>
+		<li ng-show="endpoints.length == 0">No Records</li>
+	</ul>
+
+</div>

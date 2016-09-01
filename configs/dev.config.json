@@ -1,0 +1,12 @@
+{
+	"main": {
+		"title": "mimic",
+		"mode": "dev",
+		"port_master": 3001,
+    	"port_worker": 8081,
+    	"mongo_path": "mongodb://localhost/mimic",
+		"salt": "8ad00050-3c26-11e6-8a04-114b6a06ea3f",
+		"compression": false,
+		"core_limit": 1
+	}
+}

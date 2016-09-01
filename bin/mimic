@@ -1,0 +1,125 @@
+#!/bin/bash
+
+# Check location of global installation
+if [ -d "$HOME/.node/bin/" ]
+then
+	global="$HOME/.node";
+else
+	global="/usr/local";
+fi
+
+# Detect if installed globally
+
+if [ -e "$global/bin/mimic-path" ]
+then
+	path="local";
+
+	lib=$(<$global/bin/mimic-path);
+	bin="$(<$global/bin/mimic-path)/bin";
+else
+	path="global";
+
+	lib="$global/lib/node_modules/mimic";
+	bin="$global/lib/node_modules/mimic/bin";
+fi
+
+param=$1;
+param_2=$2;
+
+function help {
+	echo "";
+	echo "Usage: mimic <command>";
+	echo "";
+	echo "where <command> is one of:";
+	echo "      -h, --help                    general help/usage of mimic";
+	echo "      -r, --run                     globally starts mimic project";
+	echo "      -r -l, --run -l               globally starts mimic and log to a file";
+	echo "      -s, --stop                    globally stops mimic project";
+	echo "      -v, --version                 mimic version";
+	echo "";
+	echo "You don't have to setup mimic if you already have .mimic.json in your root user directory.";
+	echo "";
+	echo "$lib - project directory ($path)";
+	echo "";
+	echo "";
+}
+
+function run {
+	echo "";
+	echo "----------";
+	echo " starting: mimic";
+	echo "----------";
+	echo "";
+
+	cd $lib;
+
+	if [[ $param_2 ]]
+	then
+		exec node ./index.js . >> ./logs/mimic.log 2>&1 &
+
+		nohup echo '';
+	else
+		node ./index.js
+	fi
+}
+
+function stop {
+	echo "";
+	echo "-----------";
+	echo " stopping: mimic";
+	echo "-----------";
+	echo "";
+
+	pkill node
+}
+
+function version {
+	cd $lib;
+
+	package_version=$(cat package.json \
+		| grep version \
+		| head -1 \
+		| awk -F: '{ print $2 }' \
+		| sed 's/[",]//g')
+
+	echo $package_version
+}
+
+case "$param" in
+	"")
+		help;
+    ;;
+    -h)
+		help;
+    ;;
+    --help)
+		help;
+    ;;
+    -st)
+		setup;
+	;;
+	--setup)
+		setup;
+	;;
+	-r)
+		run;
+	;;
+	--run)
+		run;
+	;;
+	-s)
+		stop;
+	;;
+	--stop)
+		stop;
+	;;
+	-v)
+		version;
+	;;
+	--version)
+		version;
+	;;
+    *)
+    	help;
+    ;;
+esac

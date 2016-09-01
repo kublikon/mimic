@@ -1,0 +1,49 @@
+<div class="modal">
+	<div class="con">
+
+		<header>
+			<p>{{endpoint.name}}</p>
+			<i class="fa fa-close" ui-sref="endpoints()"></i>
+		</header>
+
+		<div class="body clearfix">
+			<div class="left">
+				<p>Path <span>{{endpoint.path}}</span></p>
+				<p>Type <span>{{endpoint.type}}</span></p>
+				<p>Response Type 
+					<span>
+						<select ng-model="endpoint.response_type">
+							<option>success</option>
+							<option>fail</option>
+							<option>error</option>
+							<option>random</option>
+							<option>condition</option>
+						</select>
+					</span>
+				</p>
+				<textarea rows="4" placeholder="success response" ng-model="endpoint.success_response"></textarea>
+				<textarea rows="4" placeholder="fail response" ng-model="endpoint.fail_response"></textarea>
+				<textarea rows="4" placeholder="error response" ng-model="endpoint.error_response"></textarea>
+			</div>
+			<div class="right">
+				<p>Active 
+					<span>
+						<select ng-model="endpoint.is_active">
+							<option value="true">yes</option>
+							<option value="false">no</option>
+						</select>
+					</span>
+				</p>
+				<p><i class="fa fa-check"></i>Pass <span>{{endpoint.count_success}}</span></p>
+				<p><i class="fa fa-close"></i>Fail <span>{{endpoint.count_fail}}</span></p>
+				<p><i class="fa fa-bug"></i>Error <span>{{endpoint.count_error}}</span></p>
+			</div>
+		</div>
+
+		<footer>
+			<button class="save" ng-click="update()">Update</button>
+			<button class="save" ng-click="clear(endpoint)">Clear Stats</button>
+			<button ng-click="remove(endpoint)"><i class="fa fa-close"></i></button>
+		</footer>
+	</div>
+</div>

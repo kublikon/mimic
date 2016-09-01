@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Backbone Transition - Component</title>
+    <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="../../css/kb-base.css" />
+    <link rel="stylesheet" href="../../css/kb-header.css" />
+    <link rel="stylesheet" href="../../css/kb-banner.css" />
+    <link rel="stylesheet" href="../../css/kb-table.css" />
+    <link rel="stylesheet" href="../../css/kb-dropdown.css" />
+    <link rel="stylesheet" href="../../css/kb-navigation.css" />
+    <link rel="stylesheet" href="../../css/kb-label.css" />
+    <link rel="stylesheet" href="../../css/kb-button.css" />
+    <link rel="stylesheet" href="../../css/kb-pane.css" />
+    <link rel="stylesheet" href="../../css/kb-modal.css" />
+    <link rel="stylesheet" href="../../css/kb-progress-bar.css" />
+    <link rel="stylesheet" href="../../css/kb-box-slide.css" />
+    <link rel="stylesheet" href="../../css/kb-misc.css" />
+    
+    <link rel="stylesheet" href="assets/css/font-awesome.css" />
+</head>
+
+<body>
+    
+    
+    <div class="hdr hdr-top">
+        <div class="con">
+            <div class="clearfix" id="mainMenu">
+            </div>
+        </div>
+    </div>
+
+    <div class="ban ban-top">
+        <div class="con">
+            <h1>Kuba-bootstrap</h1>
+            <p>Components for mobile devices</p>
+            <button class="btn btn-lg" id="download">Download</button>
+            <p><em>Version 0.0.1</em></p>
+        </div>
+    </div>
+    <div class="ban-sub">
+        <div class="con">
+            <p>Hi there</p>
+            <button class="btn page-slider" data-dest="page_1">page 1</button>
+            <button class="btn page-slider" data-dest="page_2">page 2</button>
+            <button class="btn page-slider" data-dest="page_3">page 3</button>
+            <button class="btn page-slider" data-dest="page_4">page 4</button>
+        </div>
+    </div>
+
+    <div class="con-mov" id="page_1">
+        <div class="con">
+            <h2>Page 1</h2>
+            <p>Description</p>
+
+            <div class="pane">
+                <button class="btn page-slider" data-dest="page_3">Slide to page 3 &gt;&gt;&gt;</button>
+                <button class="btn page-slider" data-dest="page_4">Slide to page 4 &gt;&gt;&gt;</button>
+                <button class="btn page-slider" style="float:right" data-dest="page_1">Self</button>
+            </div>  
+        </div>
+    </div>
+    <div class="con-mov b-yellow" id="page_2">
+        <div class="con">
+            <h2>Page 2</h2>
+            <p>Description</p>
+
+            <div class="pane">
+                <button class="btn page-slider" data-dest="page_1">&lt;&lt;&lt; Slide to page 1</button>
+                <button class="btn page-slider" data-dest="page_4">Slide to page 4 &gt;&gt;&gt;</button>
+            </div> 
+        </div>
+    </div>
+    <div class="con-mov b-green" id="page_3">
+        <div class="con">
+            <h2>Page 3</h2>
+            <p>Description</p>
+
+            <div class="pane">
+                <button class="btn page-slider" data-dest="page_2">&lt;&lt;&lt;Slide to page 2</button>
+                <button class="btn page-slider" data-dest="page_4">Slide to page 4 &gt;&gt;&gt;</button>
+            </div>  
+        </div>
+    </div>
+    <div class="con-mov b-blue" id="page_4">
+        <div class="con">
+            <h2>Page 4</h2>
+            <p>Description</p>
+
+            <div class="pane">
+                <button class="btn page-slider" data-dest="page_1">&lt;&lt;&lt;Slide to page 1</button>
+                <button class="btn page-slider" data-dest="page_3">&lt;&lt;&lt;Slide to page 3</button>
+            </div>  
+        </div>
+    </div>
+
+    <!-- assets -->
+    <script src="assets/js/jquery-1.9.0.min.js"></script>
+    <script src="assets/js/underscore-min.js"></script>
+    <script src="assets/js/handlebars.js"></script>
+    <script src="assets/js/backbone-min.js"></script>
+    
+    <!-- component -->
+    <script src="../../js/general/kb-base.js"></script>
+    <script src="../../js/backbone/kb-bb-transition.js"></script>
+   
+    <!-- demo -->
+    <script src="js/dm-bb-transition.js"></script>
+</body>
+</html>
